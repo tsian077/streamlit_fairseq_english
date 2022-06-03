@@ -67,7 +67,7 @@ def app():
 
     MODEL_URL = "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=17nMz39Apg6XkpSc63W1Be74gc9Kk1Bsa"  # noqa
     # https://drive.google.com/file/d/17nMz39Apg6XkpSc63W1Be74gc9Kk1Bsa/view?usp=sharing
-    MODEL_LOCAL_PATH = HERE / "english/checkpoint_best.pt"
+    MODEL_LOCAL_PATH = HERE / "english/checkpoint91.pt"
    
 
     download_file(MODEL_URL, MODEL_LOCAL_PATH, expected_size=365042194)
