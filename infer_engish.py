@@ -108,6 +108,10 @@ def s2t():
     
 #     wav_file = open("recording0_my_.wav","wb")
 #     wav_file = open("temp.wav","wb")
+    y,sr = librosa.load('input.wav',sr=44100)
+    y_16k = librosa.resample(y,orig_sr=sr,target_sr=8000)
+    librosa.output.write_wav('input_16k.wav',y,sr)
+    
     start_time = time.time()
     total_translate_time = 0
 
@@ -178,7 +182,8 @@ def s2t():
 #     inputs = ['/home/jovyan/jimmy2/stereo_file.wav']
 #     inputs = ['temp.wav']
     # inputs = ['ser_output5.wav']
-    inputs = ['input.wav']
+    # inputs = ['input.wav']
+    inputs = ['input_16k.wav']
 #     inputs = ['output16000.wav']
 #     inputs = ['recording1.wav']
     for batch in make_batches(inputs,  task, max_positions, encode_fn):
