@@ -109,7 +109,7 @@ def s2t():
 #     wav_file = open("recording0_my_.wav","wb")
 #     wav_file = open("temp.wav","wb")
     y,sr = librosa.load('input.wav',sr=44100)
-    y_16k = librosa.resample(y,orig_sr=sr,target_sr=8000)
+    y_16k = librosa.resample(y,orig_sr=sr,target_sr=16000)
     librosa.output.write_wav('input_16k.wav',y,sr)
     
     start_time = time.time()
