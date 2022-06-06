@@ -16,6 +16,7 @@ import sys
 import time
 from argparse import Namespace
 from collections import namedtuple
+import librosa
 
 import numpy as np
 # import torch
@@ -83,6 +84,11 @@ def make_batches(lines,  task, max_positions, encode_fn):
 
 # def main():
 def s2t():
+    
+    y,sr = librosa.load('input.wav',sr=44100)
+    y_16k = librosa.resample(y,orig_sr=sr,target_sr=8000)
+    librosa.output.write_wav('input_16k.wav',y,sr)
+
 
     start_time = time.time()
     total_translate_time = 0
@@ -154,7 +160,8 @@ def s2t():
 
 
     # inputs = ['ser_output5.wav']
-    inputs = ['input.wav']
+    # inputs = ['input.wav']
+    inputs = ['input_16k.wav']
 
     for batch in make_batches(inputs,  task, max_positions, encode_fn):
 

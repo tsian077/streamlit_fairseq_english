@@ -30,4 +30,5 @@ bitarray
 sentencepiece
 googledrivedownloader
 soundfile
+librosa
 torchaudio
